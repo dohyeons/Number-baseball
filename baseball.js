@@ -3,7 +3,7 @@ const answerInput = document.querySelector("#answerInput");
 const inputNum = document.querySelector("#answerInput input");
 const btn = document.querySelector("#answerInput button");
 const pastTry = document.querySelector("#pastTry");
-const past = document.querySelector("h2");
+const randomNumBtn = document.querySelector(".container button");
 
 
 function answerMaker() {
@@ -26,7 +26,6 @@ function handleSubmit(event) {
     const past = document.createElement("h2");
     past.innerText = stringNum;
     pastTry.appendChild(past);
-    console.log(past)
     inputNum.value='';
 }
 
@@ -34,6 +33,4 @@ function handleSubmit(event) {
 answerInput.addEventListener("submit", handleSubmit);
 
 
-answerMaker();
-
-
+randomNumBtn.addEventListener('click',  answerMaker)
