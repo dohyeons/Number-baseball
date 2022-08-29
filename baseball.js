@@ -3,7 +3,9 @@ const answerInput = document.querySelector("#answerInput");
 const inputNum = document.querySelector("#answerInput input");
 const btn = document.querySelector("#answerInput button");
 const pastTry = document.querySelector("#pastTry");
-;
+const past = document.querySelector("h2");
+
+
 function answerMaker() {
     let answer = "";
     let i = 0;
@@ -24,7 +26,8 @@ function handleSubmit(event) {
     const past = document.createElement("h2");
     past.innerText = stringNum;
     pastTry.appendChild(past);
-    
+    console.log(past)
+    inputNum.value='';
 }
 
 
