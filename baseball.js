@@ -10,12 +10,12 @@ const numberCreated = document.querySelector("#numberCreated");
 let count = 0; // count가 10이 되면 사용자의 패배임
 let strike = 0; // 표시할 스트라이크;
 let ball = 0; // 표시할 볼;
-let 
+let number=[];
 
 function answerMaker() { // 난수 생성 함수
     // 난수를 생성해서 number에 요소 하나하나로 넣어줌
     // 넣어준 요소를 하나하나 answer에도 더해줌
-    let number=[];
+    
     let answer = "";
     number[0] = Math.floor(Math.random() * 10);
     do {
@@ -28,13 +28,8 @@ function answerMaker() { // 난수 생성 함수
     for(let el of number) {
         answer = answer + el
     }
-    // let i = 0;
-    // while (i < 3) {
-    // answer = answer + Math.floor(Math.random() * 10);
-    // i++;
-    // }
     answerNum.innerText = answer;
-    numberCreated.classList.remove('hidden')
+    numberCreated.classList.remove('hidden');
 }
 
 randomNumBtn.addEventListener('click',  answerMaker); // 난수 생성
@@ -47,18 +42,16 @@ function handleSubmit(event) {
     const stringNum = String(inputNum.value); // input에 입력한 값을 문자열로 전환해줌
     const past = document.createElement("div"); // 과거 시도를 담을 div요소 생성
     past.innerText = stringNum; //div 의 컨텐츠로 과거 시도를 넣어줌
-    pastTry.appendChild(past); // 자식 요소로 연결
+    pastTry.appendChild(past); // 위에서 생성한 요소를 자식 요소로 연결
     inputNum.value=''; // 입력칸 다시 초기화
-
-    // includes는 true지만 indexOf가 다르다면 ball
-    // includes도 true고 answer.indexOf와 stringNum.indexOf가 같다면 strike
-    // 아니라면 foul
+    let inputArr = [];
+    for(let i = 0; i < number.length ; i ++) {
+        inputArr[i] = Number(stringNum[i]);
+    } // number와 inputArr를 비교하기 위해서 inputArr에 입력값들을 요소로 하나하나 넣어줌
     
 }
 answerInput.addEventListener("submit", handleSubmit); // 답 입력
 
-if(pastAnswer.value) {
 
-}
 
 
