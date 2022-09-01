@@ -64,7 +64,7 @@ function handleSubmit(event) {
     pastTry.appendChild(sucessMessage);
     btn.disabled = true;
   }
-  if (count === 10) {
+  if (count === 10 && strike!==3) {
     const failureMessage = document.createElement("div");
     failureMessage.innerText = '다음에 다시 시도하세요!'
     pastTry.appendChild(failureMessage);
