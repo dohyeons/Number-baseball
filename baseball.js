@@ -1,4 +1,3 @@
-const answerNum = document.querySelector("#answerNumber");
 const answerInput = document.querySelector("#answerInput");
 const inputNum = document.querySelector("#answerInput input");
 const btn = document.querySelector("#answerInput button");
@@ -10,13 +9,12 @@ const numberCreated = document.querySelector("#numberCreated");
 let count = 0; // count가 10이 되면 사용자의 패배임
 let strike = 0; // 표시할 스트라이크;
 let ball = 0; // 표시할 볼;
-let number=[];
+let number=[]; // 난수를 저장할 배열;
 
 function answerMaker() { // 난수 생성 함수
     // 난수를 생성해서 number에 요소 하나하나로 넣어줌
-    // 넣어준 요소를 하나하나 answer에도 더해줌
+    // 넣어준 요소를 하나하나 answer에도 더해줌 <-- 사실 난수를 보여줄 필요는 없으므로 이 부분을 수정. answer 삭제
     
-    let answer = "";
     number[0] = Math.floor(Math.random() * 10);
     do {
       number[1] = Math.floor(Math.random() * 10);
@@ -25,11 +23,9 @@ function answerMaker() { // 난수 생성 함수
       number[2] = Math.floor(Math.random() * 10);
     } while (number[2] === number[0] || number[2] === number[1]);
 
-    for(let el of number) {
-        answer = answer + el
-    }
-    answerNum.innerText = answer;
-    numberCreated.classList.remove('hidden');
+    console.log(number);
+    numberCreated.classList.remove('hidden'); // 안내메시지를 보이게끔
+    randomNumBtn.disabled = true;
 }
 
 randomNumBtn.addEventListener('click',  answerMaker); // 난수 생성
