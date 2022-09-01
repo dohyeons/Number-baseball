@@ -30,42 +30,46 @@ function answerMaker() { // 난수 생성 함수
 randomNumBtn.addEventListener('click',  answerMaker); // 난수 생성
 
 function handleSubmit(event) {
-    // 정답 입력 버튼 함수
-    // input에 적은 숫자를 밑에 쭉 나열
-    // 숫자를 입력받아 문자열로 변환해줌
-    event.preventDefault(); // 버튼 클릭하면 초기화되는거 방지
-    const stringNum = String(inputNum.value); // input에 입력한 값을 문자열로 전환해줌
-    const past = document.createElement("div"); // 과거 시도를 담을 div요소 생성
-    past.innerText = stringNum; //div 의 컨텐츠로 과거 시도를 넣어줌
-    pastTry.appendChild(past); // 위에서 생성한 요소를 자식 요소로 연결
-    inputNum.value=''; // 입력칸 다시 초기화
-    let inputArr = []; // number와 입력 숫자를 비교하기 위한 배열
-    count++; // 시도 횟수를 증가시킴
-    strike = 0;
-    ball = 0; // 스트라이크가 한꺼번에 나오지 않는 이상 게임을 이긴 것이 아니므로 볼과 스트라이크를 초기화. 
-    for(let i = 0; i < number.length ; i ++) {
-      inputArr[i] = Number(stringNum[i]); // number와 inputArr를 비교하기 위해서 inputArr에 입력값들을 요소로 하나하나 넣어줌
-    } 
-    for(let n=0; n<3 ; n ++) {
-      for(let i = 0; i <3 ; i ++) {
-        if(number[n] === inputArr[i]) {
-          if(n === i) {
-            strike ++;
-          } else {ball ++;}
-          break;
-        } 
+  // 정답 입력 버튼 함수
+  // input에 적은 숫자를 밑에 쭉 나열
+  // 숫자를 입력받아 문자열로 변환해줌
+  event.preventDefault(); // 버튼 클릭하면 초기화되는거 방지
+  const stringNum = String(inputNum.value); // input에 입력한 값을 문자열로 전환해줌
+  let inputArr = []; // number와 입력 숫자를 비교하기 위한 배열
+  inputNum.value = ""; // 입력칸 다시 초기화
+  count++; // 시도 횟수를 증가시킴
+  strike = 0;
+  ball = 0; // 스트라이크가 한꺼번에 나오지 않는 이상 게임을 이긴 것이 아니므로 볼과 스트라이크를 초기화.
+  for (let i = 0; i < number.length; i++) {
+    inputArr[i] = Number(stringNum[i]); // number와 inputArr를 비교하기 위해서 inputArr에 입력값들을 요소로 하나하나 넣어줌
+  }
+  for (let n = 0; n < 3; n++) {
+    for (let i = 0; i < 3; i++) {
+      if (number[n] === inputArr[i]) {
+        if (n === i) {
+          strike++;
+        } else {
+          ball++;
+        }
+        break;
       }
     }
-    console.log(`strike: ${strike}, ball: ${ball}, 시도횟수: ${count}`)
-    if (strike === 3) {
-      console.log(`${count}번 만에 성공했습니다!`);
-      btn.disabled = true;
-    }
-    if (count === 10) {
-      console.log("다음에 다시 시도하세요!");
-      btn.disabled = true;
-    }
-
+  }
+  const past = document.createElement("div"); // 과거 시도를 담을 div요소 생성
+  past.innerText = `${stringNum}  strike: ${strike}, ball: ${ball}, 시도횟수: ${count}`; //div 의 컨텐츠로 과거 시도를 넣어줌
+  pastTry.appendChild(past); // 위에서 생성한 요소를 자식 요소로 연결
+  if (strike === 3) {
+    const sucessMessage = document.createElement("div");
+    sucessMessage.innerText = `축하합니다! ${count}번 만에 성공했습니다!`;
+    pastTry.appendChild(sucessMessage);
+    btn.disabled = true;
+  }
+  if (count === 10) {
+    const failureMessage = document.createElement("div");
+    failureMessage.innerText = '다음에 다시 시도하세요!'
+    pastTry.appendChild(failureMessage);
+    btn.disabled = true;
+  }
 }
 
 
