@@ -9,7 +9,6 @@ const numberCreated = document.querySelector("#numberCreated");
 let count = 0; // count가 10이 되면 사용자의 패배임
 let strike = 0; // 표시할 스트라이크;
 let ball = 0; // 표시할 볼;
-let out = 0; // 아웃 카운트가 9가되면 아웃 표시
 let number=[]; // 난수를 저장할 배열;
 
 function answerMaker() { // 난수 생성 함수
@@ -54,9 +53,7 @@ function handleSubmit(event) {
             strike ++;
           } else {ball ++;}
           break;
-        } else {
-          out ++;
-        }
+        } 
       }
     }
     console.log(`strike: ${strike}, ball: ${ball}, 시도횟수: ${count}`)
