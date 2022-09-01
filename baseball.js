@@ -23,9 +23,8 @@ function answerMaker() { // 난수 생성 함수
       number[2] = Math.floor(Math.random() * 10);
     } while (number[2] === number[0] || number[2] === number[1]);
 
-    console.log(number);
     numberCreated.classList.remove('hidden'); // 안내메시지를 보이게끔
-    randomNumBtn.disabled = true;
+    randomNumBtn.disabled = true; //난수를 한 번 생각하면 버튼을 비활성화.
 }
 
 randomNumBtn.addEventListener('click',  answerMaker); // 난수 생성
