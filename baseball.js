@@ -2,32 +2,33 @@ const answerInput = document.querySelector("#answerInput");
 const inputNum = document.querySelector("#answerInput input");
 const btn = document.querySelector("#answerInput button");
 const pastTry = document.querySelector("#pastTryContainer");
-const pastAnswer = document.querySelectorAll("#pastTryContainer div")
+const pastAnswer = document.querySelectorAll("#pastTryContainer div");
 const randomNumBtn = document.querySelector(".container button");
 const numberCreated = document.querySelector("#numberCreated");
 
 let count = 0; // count가 10이 되면 사용자의 패배임
 let strike = 0; // 표시할 스트라이크;
 let ball = 0; // 표시할 볼;
-let number=[]; // 난수를 저장할 배열;
+let number = []; // 난수를 저장할 배열;
 
-function answerMaker() { // 난수 생성 함수
-    // 난수를 생성해서 number에 요소 하나하나로 넣어줌
-    // 넣어준 요소를 하나하나 answer에도 더해줌 <-- 사실 난수를 보여줄 필요는 없으므로 이 부분을 수정. answer 삭제
-    
-    number[0] = Math.floor(Math.random() * 10);
-    do {
-      number[1] = Math.floor(Math.random() * 10);
-    } while (number[1] === number[0]);
-    do {
-      number[2] = Math.floor(Math.random() * 10);
-    } while (number[2] === number[0] || number[2] === number[1]);
-    console.log(number);
-    numberCreated.classList.remove('hidden'); // 안내메시지를 보이게끔
-    randomNumBtn.disabled = true; //난수를 한 번 생각하면 버튼을 비활성화.
+function answerMaker() {
+  // 난수 생성 함수
+  // 난수를 생성해서 number에 요소 하나하나로 넣어줌
+  // 넣어준 요소를 하나하나 answer에도 더해줌 <-- 사실 난수를 보여줄 필요는 없으므로 이 부분을 수정. answer 삭제
+
+  number[0] = Math.floor(Math.random() * 10);
+  do {
+    number[1] = Math.floor(Math.random() * 10);
+  } while (number[1] === number[0]);
+  do {
+    number[2] = Math.floor(Math.random() * 10);
+  } while (number[2] === number[0] || number[2] === number[1]);
+  console.log(number);
+  numberCreated.classList.remove("hidden"); // 안내메시지를 보이게끔
+  randomNumBtn.disabled = true; //난수를 한 번 생각하면 버튼을 비활성화.
 }
 
-randomNumBtn.addEventListener('click',  answerMaker); // 난수 생성
+randomNumBtn.addEventListener("click", answerMaker); // 난수 생성
 
 function handleSubmit(event) {
   // 정답 입력 버튼 함수
@@ -64,16 +65,12 @@ function handleSubmit(event) {
     pastTry.appendChild(sucessMessage);
     btn.disabled = true;
   }
-  if (count === 10 && strike!==3) {
+  if (count === 10 && strike !== 3) {
     const failureMessage = document.createElement("div");
-    failureMessage.innerText = '다음에 다시 시도하세요!'
+    failureMessage.innerText = "다음에 다시 시도하세요!";
     pastTry.appendChild(failureMessage);
     btn.disabled = true;
   }
 }
 
-
 answerInput.addEventListener("submit", handleSubmit); // 답 입력
-
-
-
