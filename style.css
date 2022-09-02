@@ -57,7 +57,9 @@ body {
     padding-top: 12%;
     height: 100%;
 }
-
+#numberCreated {
+    text-align: center;;
+}
 .hidden {
     display: none;
 }
