@@ -50,8 +50,9 @@ body {
 #gamePlayContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding-top: 12%;
+    height: 100%;
 }
 
 .hidden {
