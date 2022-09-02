@@ -70,6 +70,7 @@ function handleSubmit(event) {
     )}번 만에 성공했습니다!😀`;
     pastTry.appendChild(sucessMessage);
     btn.disabled = true;
+    inputNum.disabled = true;
   }
   if (count === 0 && strike !== 3) {
     const failureMessage = document.createElement("div");
@@ -78,6 +79,7 @@ function handleSubmit(event) {
     )}`;
     pastTry.appendChild(failureMessage);
     btn.disabled = true;
+    inputNum.disabled = true;
   }
 }
 
