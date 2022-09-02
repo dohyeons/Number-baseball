@@ -1,7 +1,15 @@
+@font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'SeoulNamsanM'
 }
 body {
     width:100vw;
@@ -9,16 +17,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
-.container {
+#welcomeContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     height: 50%;
 }
+
 #welcomeMessage {
     font-size: 4rem;
+    font-family: 'Baloo 2';
 }
 #startBtn {
     background-color: white;
