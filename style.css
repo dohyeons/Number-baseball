@@ -11,6 +11,7 @@
     box-sizing: border-box;
     font-family: 'SeoulNamsanM'
 }
+
 body {
     width: 100vw;
     height: 100vh;
@@ -19,14 +20,20 @@ body {
     justify-content: center;
     align-items: center;
 }
-#welcomeContainer {
+.welcomeContainerClass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
+.hidden {
+    display: none;
+}
 #welcomeMessage {
     font-size: 4rem;
     font-family: 'Baloo 2';
 }
 #startBtn {
+    margin-top: 5rem;
     background-color: white;
     border: 1px solid;
     border-radius: 10%;
@@ -43,9 +50,5 @@ body {
     transform : translateY(3px);
     border-bottom: 3px solid rgb(113, 112, 112);
 }
-#answerInputContainer {
 
-}
-.hidden {
-    display: none;
-}
+
