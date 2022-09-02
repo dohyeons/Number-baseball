@@ -12,19 +12,9 @@
     font-family: 'SeoulNamsanM'
 }
 body {
-    width:100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+
 }
 #welcomeContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 50%;
 }
 
 #welcomeMessage {
@@ -34,9 +24,9 @@ body {
 #startBtn {
     background-color: white;
     border: 1px solid;
-    border-radius: 50%;
-    height: 20%;
-    width: 15%;
+    border-radius: 10%;
+    height: 75px;
+    width: 100px;
     transition: all 0.1s;
     border-bottom: 5px solid rgb(113, 112, 112);
 }
@@ -46,9 +36,11 @@ body {
 }
 #startBtn:active {
     transform : translateY(3px);
-    border-bottom: 2px solid rgb(113, 112, 112);
+    border-bottom: 3px solid rgb(113, 112, 112);
+}
+#answerInputContainer {
+
 }
 .hidden {
-    /* display: none; */
     display: none;
 }
