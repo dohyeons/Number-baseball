@@ -9,12 +9,13 @@
 </head>
 <body>
     <div class="container">
+        <div id="welcomeMessage">⚾Win or Go Home⚾</div>
         <div class="hidden" id="numberCreated" >숫자가 생성되었습니다!</div>
-        <button >난수생성</button>
+        <button >자자 선수입장~</button>
     </div>
     <form id="answerInput">
-        <input type="text" maxlength='3' minlength="3" placeholder="3자리 수를 입력하세요">
-        <button >SWING</button>
+        <input type="text" maxlength='3' minlength="3" placeholder="3자리 수를 입력하세요" pattern="[0-9]+"  class="hidden">
+        <button  class="hidden">SWING</button>
     </form>
     <div id="pastTryContainer"></div>
     <script src="/baseball.js"></script>

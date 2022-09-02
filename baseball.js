@@ -4,9 +4,10 @@ const btn = document.querySelector("#answerInput button");
 const pastTry = document.querySelector("#pastTryContainer");
 const pastAnswer = document.querySelectorAll("#pastTryContainer div");
 const randomNumBtn = document.querySelector(".container button");
+const welcomeMessage = document.querySelector("#welcomeMessage");
 const numberCreated = document.querySelector("#numberCreated");
 
-let count = 0; // count가 10이 되면 사용자의 패배임
+let count = 10; // count가 0이 되면 사용자의 패배임
 let strike = 0; // 표시할 스트라이크;
 let ball = 0; // 표시할 볼;
 let number = []; // 난수를 저장할 배열;
@@ -25,6 +26,9 @@ function answerMaker() {
   } while (number[2] === number[0] || number[2] === number[1]);
   console.log(number);
   numberCreated.classList.remove("hidden"); // 안내메시지를 보이게끔
+  inputNum.classList.remove("hidden");
+  btn.classList.remove("hidden");
+  welcomeMessage.classList.add("hidden");
   randomNumBtn.disabled = true; //난수를 한 번 생각하면 버튼을 비활성화.
 }
 
@@ -38,7 +42,7 @@ function handleSubmit(event) {
   const stringNum = String(inputNum.value); // input에 입력한 값을 문자열로 전환해줌
   let inputArr = []; // number와 입력 숫자를 비교하기 위한 배열
   inputNum.value = ""; // 입력칸 다시 초기화
-  count++; // 시도 횟수를 증가시킴
+  count--; // 남은 횟수를 감소시킴
   strike = 0;
   ball = 0; // 스트라이크가 한꺼번에 나오지 않는 이상 게임을 이긴 것이 아니므로 볼과 스트라이크를 초기화.
   for (let i = 0; i < number.length; i++) {
@@ -57,17 +61,17 @@ function handleSubmit(event) {
     }
   }
   const past = document.createElement("div"); // 과거 시도를 담을 div요소 생성
-  past.innerText = `${stringNum}  strike: ${strike}, ball: ${ball}, 시도횟수: ${count}`; //div 의 컨텐츠로 과거 시도를 넣어줌
+  past.innerText = `${stringNum}  strike: ${strike}, ball: ${ball}, 남은횟수: ${count}`; //div 의 컨텐츠로 과거 시도를 넣어줌
   pastTry.appendChild(past); // 위에서 생성한 요소를 자식 요소로 연결
   if (strike === 3) {
     const sucessMessage = document.createElement("div");
-    sucessMessage.innerText = `축하합니다! ${count}번 만에 성공했습니다!`;
+    sucessMessage.innerText = `축하합니다! ${Math.abs(count-10) }번 만에 성공했습니다!😀`;
     pastTry.appendChild(sucessMessage);
     btn.disabled = true;
   }
-  if (count === 10 && strike !== 3) {
+  if (count === 0 && strike !== 3) {
     const failureMessage = document.createElement("div");
-    failureMessage.innerText = "다음에 다시 시도하세요!";
+    failureMessage.innerText = `다음에 다시 시도하세요! 답 = ${number.join('')}`;
     pastTry.appendChild(failureMessage);
     btn.disabled = true;
   }
