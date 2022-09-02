@@ -11,11 +11,11 @@ let count = 10; // count가 0이 되면 사용자의 패배임
 let strike = 0; // 표시할 스트라이크;
 let ball = 0; // 표시할 볼;
 let number = []; // 난수를 저장할 배열;
-
+/** 버튼을 클릭했을 때, 난수를 생성하는 함수 */
 function answerMaker() {
-  // 난수 생성 함수
-  // 난수를 생성해서 number에 요소 하나하나로 넣어줌
-  // 넣어준 요소를 하나하나 answer에도 더해줌 <-- 사실 난수를 보여줄 필요는 없으므로 이 부분을 수정. answer 삭제
+  /*난수 생성 함수
+  난수를 생성해서 number에 요소 하나하나로 넣어줌
+  넣어준 요소를 하나하나 answer에도 더해줌 <-- 사실 난수를 보여줄 필요는 없으므로 이 부분을 수정. answer 삭제*/
 
   number[0] = Math.floor(Math.random() * 10);
   do {
@@ -29,15 +29,16 @@ function answerMaker() {
   inputNum.classList.remove("hidden");
   btn.classList.remove("hidden");
   welcomeMessage.classList.add("hidden");
-  randomNumBtn.disabled = true; //난수를 한 번 생각하면 버튼을 비활성화.
+  randomNumBtn.classList.add("hidden"); //난수를 한 번 생각하면 버튼을 비활성화.
 }
 
 randomNumBtn.addEventListener("click", answerMaker); // 난수 생성
 
+/** input에 숫자를 입력하고 제출하는 함수 */
 function handleSubmit(event) {
-  // 정답 입력 버튼 함수
-  // input에 적은 숫자를 밑에 쭉 나열
-  // 숫자를 입력받아 문자열로 변환해줌
+  /* 정답 입력 버튼 함수
+  input에 적은 숫자를 밑에 쭉 나열
+  숫자를 입력받아 문자열로 변환해줌 */
   event.preventDefault(); // 버튼 클릭하면 초기화되는거 방지
   const stringNum = String(inputNum.value); // input에 입력한 값을 문자열로 전환해줌
   let inputArr = []; // number와 입력 숫자를 비교하기 위한 배열
@@ -65,13 +66,17 @@ function handleSubmit(event) {
   pastTry.appendChild(past); // 위에서 생성한 요소를 자식 요소로 연결
   if (strike === 3) {
     const sucessMessage = document.createElement("div");
-    sucessMessage.innerText = `축하합니다! ${Math.abs(count-10) }번 만에 성공했습니다!😀`;
+    sucessMessage.innerText = `축하합니다! ${Math.abs(
+      count - 10
+    )}번 만에 성공했습니다!😀`;
     pastTry.appendChild(sucessMessage);
     btn.disabled = true;
   }
   if (count === 0 && strike !== 3) {
     const failureMessage = document.createElement("div");
-    failureMessage.innerText = `다음에 다시 시도하세요! 답 = ${number.join('')}`;
+    failureMessage.innerText = `다음에 다시 시도하세요! 답 = ${number.join(
+      ""
+    )}`;
     pastTry.appendChild(failureMessage);
     btn.disabled = true;
   }
