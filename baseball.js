@@ -6,6 +6,7 @@ const pastAnswer = document.querySelectorAll("#pastTryContainer div");
 const randomNumBtn = document.querySelector(".container button");
 const welcomeMessage = document.querySelector("#welcomeMessage");
 const numberCreated = document.querySelector("#numberCreated");
+const newTryBtn = document.querySelector("#newTryBtnContainer button");
 
 let count = 10; // count가 0이 되면 사용자의 패배임
 let strike = 0; // 표시할 스트라이크;
@@ -62,7 +63,7 @@ function handleSubmit(event) {
     }
   }
   const past = document.createElement("div"); // 과거 시도를 담을 div요소 생성
-  past.innerText = `${stringNum}  strike: ${strike}, ball: ${ball}, 남은횟수: ${count}`; //div 의 컨텐츠로 과거 시도를 넣어줌
+  past.innerText = `${inputArr[0]}, ${inputArr[1]}, ${inputArr[2]}  ${strike} 스트라이크, ${ball} 볼, 남은횟수: ${count}`; //div 의 컨텐츠로 과거 시도를 넣어줌
   pastTry.appendChild(past); // 위에서 생성한 요소를 자식 요소로 연결
   if (strike === 3) {
     const sucessMessage = document.createElement("div");
