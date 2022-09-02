@@ -25,9 +25,6 @@ body {
     flex-direction: column;
     align-items: center;
 }
-.hidden {
-    display: none;
-}
 #welcomeMessage {
     font-size: 4rem;
     font-family: 'Baloo 2';
@@ -50,5 +47,13 @@ body {
     transform : translateY(3px);
     border-bottom: 3px solid rgb(113, 112, 112);
 }
+#gamePlayContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-
+.hidden {
+    display: none;
+}
