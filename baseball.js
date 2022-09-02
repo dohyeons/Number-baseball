@@ -8,6 +8,8 @@ const inputNum = document.querySelector("#answerInput input");
 const btn = document.querySelector("#answerInput button");
 const pastTry = document.querySelector("#pastTryContainer");
 const newTryBtn = document.querySelector("#newTryBtnContainer button");
+const pastTryDiv = document.querySelector("#pastTryContainer div");
+
 
 let count = 10; // count가 0이 되면 사용자의 패배임
 let strike = 0; // 표시할 스트라이크;
@@ -71,6 +73,7 @@ function handleSubmit(event) {
     pastTry.appendChild(sucessMessage);
     btn.disabled = true;
     inputNum.disabled = true;
+    newTryBtn.classList.remove('hidden');
   }
   if (count === 0 && strike !== 3) {
     const failureMessage = document.createElement("div");
@@ -80,7 +83,16 @@ function handleSubmit(event) {
     pastTry.appendChild(failureMessage);
     btn.disabled = true;
     inputNum.disabled = true;
+    newTryBtn.classList.remove("hidden");
+    newTryBtn.innerText = '재도전 ㄱ?'
   }
 }
 
 answerInput.addEventListener("submit", handleSubmit); // 답 입력
+
+
+function handleNewTryBtn() {
+    location.reload();
+}
+
+newTryBtn.addEventListener('click', handleNewTryBtn)
