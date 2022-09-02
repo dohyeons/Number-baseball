@@ -1,11 +1,12 @@
+const welcomeContainer = document.querySelector("#welcomeContainer");
+const welcomeMessage = document.querySelector("#welcomeMessage");
+const startBtn = document.querySelector("#welcomeContainer button");
+const answerInputContainer = document.querySelector("#answerInputContainer");
+const numberCreated = document.querySelector("#numberCreated");
 const answerInput = document.querySelector("#answerInput");
 const inputNum = document.querySelector("#answerInput input");
 const btn = document.querySelector("#answerInput button");
 const pastTry = document.querySelector("#pastTryContainer");
-const pastAnswer = document.querySelectorAll("#pastTryContainer div");
-const randomNumBtn = document.querySelector("#welcomeContainer button");
-const welcomeMessage = document.querySelector("#welcomeMessage");
-const numberCreated = document.querySelector("#numberCreated");
 const newTryBtn = document.querySelector("#newTryBtnContainer button");
 
 let count = 10; // count가 0이 되면 사용자의 패배임
@@ -26,14 +27,11 @@ function answerMaker() {
     number[2] = Math.floor(Math.random() * 10);
   } while (number[2] === number[0] || number[2] === number[1]);
   console.log(number);
-  numberCreated.classList.remove("hidden"); // 안내메시지를 보이게끔
-  inputNum.classList.remove("hidden");
-  btn.classList.remove("hidden");
-  welcomeMessage.classList.add("hidden");
-  randomNumBtn.classList.add("hidden"); //난수를 한 번 생각하면 버튼을 비활성화.
+  answerInputContainer.classList.remove("hidden");
+  welcomeContainer.classList.add("hidden");
 }
 
-randomNumBtn.addEventListener("click", answerMaker); // 난수 생성
+startBtn.addEventListener("click", answerMaker); // 난수 생성
 
 /** input에 숫자를 입력하고 제출하는 함수 */
 function handleSubmit(event) {
