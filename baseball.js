@@ -30,7 +30,8 @@ function answerMaker() {
     number[2] = Math.floor(Math.random() * 10);
   } while (number[2] === number[0] || number[2] === number[1]);
   console.log(number);
-  answerInputContainer.classList.remove("hidden");
+  answerInput.classList.remove("hidden");
+  numberCreated.classList.remove("hidden");
   welcomeContainer.classList.add("hidden");
 }
 
