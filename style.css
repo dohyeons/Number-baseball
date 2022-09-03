@@ -57,8 +57,61 @@ body {
     padding-top: 12%;
     height: 100%;
 }
+#answerInputContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #numberCreated {
     text-align: center;
+    font-size: 3rem;
+    margin-bottom: 30px
+}
+#answerInput input {
+    height:30px;
+    padding-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+#pastTryContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: wrap;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 520px;
+}
+#pastTryContainer div {
+
+}
+.triesContainer {
+    margin-top: 30px;
+    border: 1px solid;
+    border-radius: 16px;
+    padding: 8px;
+}
+.triesContainer:hover {
+    background-color: rgb(144, 183, 144);
+}
+.pastTry {
+    text-align: center;
+    margin-bottom: 10px;
+}
+#newTryBtnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+#newTryBtnContainer button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 16px;
+}
+#newTryBtnContainer button:hover {
+    background-color: lightgrey;
+    cursor:url(/img/baseball.cur), auto;
 }
 .hidden {
     display: none;
