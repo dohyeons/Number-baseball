@@ -63,8 +63,11 @@ function handleSubmit(event) {
     }
   }
   const past = document.createElement("div"); // 과거 시도를 담을 div요소 생성
-  past.innerText = `${inputArr[0]}, ${inputArr[1]}, ${inputArr[2]}  ${strike} 스트라이크, ${ball} 볼, 남은횟수: ${count}`; //div 의 컨텐츠로 과거 시도를 넣어줌
+  const report = document.createElement("div"); // 기록 저장을 위한 div요소 생성
+  past.innerText = `${inputArr[0]}, ${inputArr[1]}, ${inputArr[2]} `; //div 의 컨텐츠로 과거 시도를 넣어줌
   pastTry.appendChild(past); // 위에서 생성한 요소를 자식 요소로 연결
+  report.innerText = `${strike} 스트라이크, ${ball} 볼, 남은횟수: ${count}`;
+  pastTry.appendChild(report);
   if (strike === 3) {
     const sucessMessage = document.createElement("div");
     sucessMessage.innerText = `축하합니다! ${Math.abs(
