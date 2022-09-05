@@ -8,6 +8,8 @@ const pastTryContainer = document.querySelector("#pastTryContainer");
 const newTryBtn = document.querySelector("#newTryBtnContainer button");
 const message = document.querySelector("#message");
 
+const HIDDEN = 'hidden';
+
 let count = 10; // count가 0이 되면 사용자의 패배임
 let strike = 0; // 표시할 스트라이크;
 let ball = 0; // 표시할 볼;
@@ -26,9 +28,9 @@ function answerMaker() {
     number[2] = Math.floor(Math.random() * 10);
   } while (number[2] === number[0] || number[2] === number[1]);
   console.log(number);
-  answerInput.classList.remove("hidden");
-  numberCreated.classList.remove("hidden");
-  welcomeContainer.classList.add("hidden");
+  answerInput.classList.remove(HIDDEN);
+  numberCreated.classList.remove(HIDDEN);
+  welcomeContainer.classList.add(HIDDEN);
 }
 
 startBtn.addEventListener("click", answerMaker); // 난수 생성
@@ -77,7 +79,7 @@ function handleSubmit(event) {
     )}번 만에 성공했습니다!😀`;
     btn.disabled = true;
     inputNum.disabled = true;
-    newTryBtn.classList.remove('hidden');
+    newTryBtn.classList.remove(HIDDEN);
   }
   if (count === 0 && strike !== 3) {
     message.innerText = `다음에 다시 도전하세요! 답 = ${number.join(
@@ -85,7 +87,7 @@ function handleSubmit(event) {
     )}`;
     btn.disabled = true;
     inputNum.disabled = true;
-    newTryBtn.classList.remove("hidden");
+    newTryBtn.classList.remove(HIDDEN);
     newTryBtn.innerText = '재도전 ㄱ?'
   }
 }
