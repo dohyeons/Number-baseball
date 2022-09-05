@@ -1,15 +1,11 @@
 const welcomeContainer = document.querySelector("#welcomeContainer");
-const welcomeMessage = document.querySelector("#welcomeMessage");
 const startBtn = document.querySelector("#welcomeContainer button");
-const answerInputContainer = document.querySelector("#answerInputContainer");
 const numberCreated = document.querySelector("#numberCreated");
 const answerInput = document.querySelector("#answerInput");
 const inputNum = document.querySelector("#answerInput input");
 const btn = document.querySelector("#answerInput button");
 const pastTryContainer = document.querySelector("#pastTryContainer");
 const newTryBtn = document.querySelector("#newTryBtnContainer button");
-const pastTryDiv = document.querySelector("#pastTryContainer div");
-const messageConatainer = document.querySelector("#messageConatainer");
 const message = document.querySelector("#message");
 
 let count = 10; // count가 0이 되면 사용자의 패배임
